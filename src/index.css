@@ -1,7 +1,21 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 1px solid salmon;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid salmon; */
 }
 
+.slideshow-container {
+  height: 100%;
+}
+
+.picture-frame {
+  border: 5px solid green;
+  margin: 0 auto;
+  width: 650px;
+  height: 310px;
+}
+
+.hide {
+  display: none;
+}
