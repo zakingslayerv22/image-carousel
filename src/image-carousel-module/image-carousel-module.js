@@ -3,6 +3,7 @@ export class ImageCarousel {
     this.allImages = document.querySelectorAll(".slide");
     this.imagesArray = [...this.allImages];
     this.pictureFrame = document.querySelector(".picture-frame");
+    this.oldImageIndex = 0;
     this.index = 1;
 
     if (this.imagesArray.length > 1) this.initialize();
@@ -17,6 +18,8 @@ export class ImageCarousel {
     if (this.index < this.imagesArray.length) {
       this.pictureFrame.textContent = "";
       this.pictureFrame.append(this.imagesArray[this.index]);
+      this.reappendImageToImagesContainer(this.oldImageIndex);
+      this.oldImageIndex++;
       this.index++;
     }
   }
@@ -26,5 +29,12 @@ export class ImageCarousel {
     nextButton.addEventListener("click", () => {
       this.nextSlide();
     });
+  }
+
+  reappendImageToImagesContainer(imageIndex) {
+    const slideImagesContainer = document.querySelector(
+      ".slide-images-container",
+    );
+    slideImagesContainer.append(this.imagesArray[imageIndex]);
   }
 }
