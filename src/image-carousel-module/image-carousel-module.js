@@ -29,10 +29,24 @@ export class ImageCarousel {
     console.log(`Next - Current index: ${this.index}`);
   }
 
+  previousSlide() {
+    if (this.index !== 0) {
+      this.pictureFrame.textContent = "";
+      this.index--;
+      this.pictureFrame.append(this.imagesArray[this.index]);
+    }
+
+    console.log(`Previous - Current index: ${this.index}`);
+  }
   handleClicks() {
     const nextButton = document.querySelector(".next-button");
+    const previousButton = document.querySelector(".previous-button");
     nextButton.addEventListener("click", () => {
       this.nextSlide();
+    });
+
+    previousButton.addEventListener("click", () => {
+      this.previousSlide();
     });
   }
 
