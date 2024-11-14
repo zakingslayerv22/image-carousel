@@ -4,7 +4,7 @@ export class ImageCarousel {
     this.imagesArray = [...this.allImages];
     this.pictureFrame = document.querySelector(".picture-frame");
     this.oldImageIndex = 0;
-    this.index = 1;
+    this.index = 0;
 
     if (this.imagesArray.length > 1) this.initialize();
   }
@@ -15,13 +15,18 @@ export class ImageCarousel {
   }
 
   nextSlide() {
+    this.index += 1;
+
     if (this.index < this.imagesArray.length) {
       this.pictureFrame.textContent = "";
       this.pictureFrame.append(this.imagesArray[this.index]);
       this.reappendImageToImagesContainer(this.oldImageIndex);
       this.oldImageIndex++;
-      this.index++;
     }
+
+    this.resetIndex();
+
+    console.log(`Next - Current index: ${this.index}`);
   }
 
   handleClicks() {
@@ -36,5 +41,10 @@ export class ImageCarousel {
       ".slide-images-container",
     );
     slideImagesContainer.append(this.imagesArray[imageIndex]);
+  }
+
+  resetIndex() {
+    if (this.index === this.imagesArray.length)
+      this.index = this.imagesArray.length - 1;
   }
 }
