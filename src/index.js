@@ -8,7 +8,7 @@ const imageOneContainer = document.querySelector(".number-one");
 
 const imageOne = new Image();
 imageOne.src = ImageOne;
-imageOne.classList.add("image-one", "slide");
+imageOne.classList.add("image-one", "image");
 
 const imageOneCaption = document.createElement("div");
 imageOneCaption.classList.add("image-caption");
@@ -20,7 +20,7 @@ const imageTwoContainer = document.querySelector(".number-two");
 
 const imageTwo = new Image();
 imageTwo.src = ImageTwo;
-imageTwo.classList.add("image-two", "slide");
+imageTwo.classList.add("image-two", "image");
 
 const imageTwoCaption = document.createElement("div");
 imageTwoCaption.classList.add("image-caption");
@@ -32,7 +32,7 @@ const imageThreeContainer = document.querySelector(".number-three");
 
 const imageThree = new Image();
 imageThree.src = ImageThree;
-imageThree.classList.add("image-three", "slide");
+imageThree.classList.add("image-three", "image");
 
 const imageThreeCaption = document.createElement("div");
 imageThreeCaption.classList.add("image-caption");
