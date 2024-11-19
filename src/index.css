@@ -15,17 +15,24 @@ body {
 }
 
 .slideshow-container {
+  display: flex;
   max-width: 600px;
+  height: 300px;
   position: relative;
-  border: 5px solid red;
+  overflow: hidden;
+  border: 10px solid red;
 }
 
 .slide {
-  display: none;
+  /* display: none; */
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .image {
   width: 100%;
+  height: 100%;
 }
 
 /* Next & previous buttons */
