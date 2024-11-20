@@ -41,5 +41,5 @@ imageThreeCaption.textContent = "Image Three";
 imageThreeContainer.append(imageThree, imageThreeCaption);
 
 window.onload = () => {
-  // new ImageCarousel();
+  new ImageCarousel();
 };
