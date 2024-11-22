@@ -11,10 +11,15 @@ export class ImageCarousel {
   }
 
   handleClicks() {
+    const previousButton = document.querySelector(".previous-button");
     const nextButton = document.querySelector(".next-button");
 
     nextButton.addEventListener("click", () => {
       this.nextSlide();
+    });
+
+    previousButton.addEventListener("click", () => {
+      this.previousSlide();
     });
   }
 
@@ -24,5 +29,13 @@ export class ImageCarousel {
     });
 
     this.currentSlideIndex++;
+  }
+
+  previousSlide() {
+    this.allSlides.forEach((slide) => {
+      slide.style.transform = `translate(${(this.currentSlideIndex - 1) * -100}%)`;
+    });
+
+    this.currentSlideIndex--;
   }
 }
