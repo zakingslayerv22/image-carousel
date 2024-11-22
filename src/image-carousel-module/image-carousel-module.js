@@ -24,6 +24,8 @@ export class ImageCarousel {
   }
 
   nextSlide() {
+    this.resetCurrentIndexForNextSlide();
+
     this.allSlides.forEach((slide) => {
       slide.style.transform = `translate(${(this.currentSlideIndex + 1) * -100}%)`;
     });
@@ -31,11 +33,25 @@ export class ImageCarousel {
     this.currentSlideIndex++;
   }
 
+  resetCurrentIndexForNextSlide() {
+    if (this.currentSlideIndex === this.allSlides.length - 1) {
+      this.currentSlideIndex = -1;
+    }
+  }
+
   previousSlide() {
+    this.resetCurrentIndexForPreviousSlide();
+
     this.allSlides.forEach((slide) => {
       slide.style.transform = `translate(${(this.currentSlideIndex - 1) * -100}%)`;
     });
 
     this.currentSlideIndex--;
+  }
+
+  resetCurrentIndexForPreviousSlide() {
+    if (this.currentSlideIndex === 0) {
+      this.currentSlideIndex = 3;
+    }
   }
 }
