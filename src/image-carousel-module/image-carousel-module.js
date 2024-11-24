@@ -1,6 +1,7 @@
 export class ImageCarousel {
   constructor() {
     this.allSlides = document.querySelectorAll(".slide");
+    this.allDots = document.querySelectorAll(".dot");
     this.currentSlideIndex = 0;
 
     if (this.allSlides.length > 1) this.initialize();
@@ -25,6 +26,8 @@ export class ImageCarousel {
 
   nextSlide() {
     this.resetCurrentIndexForNextSlide();
+    this.removeActiveClassFromAllDots();
+    this.addActiveClassToCurrentDotForNextSlide();
 
     this.allSlides.forEach((slide) => {
       slide.style.transform = `translate(${(this.currentSlideIndex + 1) * -100}%)`;
@@ -37,6 +40,10 @@ export class ImageCarousel {
     if (this.currentSlideIndex === this.allSlides.length - 1) {
       this.currentSlideIndex = -1;
     }
+  }
+
+  addActiveClassToCurrentDotForNextSlide() {
+    this.allDots[this.currentSlideIndex + 1].classList.add("active");
   }
 
   previousSlide() {
@@ -53,5 +60,9 @@ export class ImageCarousel {
     if (this.currentSlideIndex === 0) {
       this.currentSlideIndex = 3;
     }
+  }
+
+  removeActiveClassFromAllDots() {
+    this.allDots.forEach((dot) => dot.classList.remove("active"));
   }
 }
