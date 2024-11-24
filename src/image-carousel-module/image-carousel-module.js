@@ -14,6 +14,7 @@ export class ImageCarousel {
   initialize() {
     this.handleClicks();
     this.addActiveClassToDotByIndex(0);
+    this.advanceSlidesEveryFiveSeconds();
   }
 
   handleClicks() {
@@ -106,5 +107,12 @@ export class ImageCarousel {
 
   addActiveClassToDotByIndex(dotIndex) {
     this.allDots[dotIndex].classList.add("active");
+  }
+
+  advanceSlidesEveryFiveSeconds() {
+    setTimeout(() => {
+      this.nextSlide();
+      this.advanceSlidesEveryFiveSeconds();
+    }, 5000);
   }
 }
