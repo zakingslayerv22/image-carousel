@@ -13,6 +13,7 @@ export class ImageCarousel {
 
   initialize() {
     this.handleClicks();
+    this.addActiveClassToDotByIndex(0);
   }
 
   handleClicks() {
