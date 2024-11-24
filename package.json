@@ -1,7 +1,7 @@
 {
-  "name": "webpack-config",
+  "name": "image-carousel",
   "version": "1.0.0",
-  "description": "Le project de site Web de restaurant du project Odin.",
+  "description": "The Odin Project Image Carousel Assignment",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
