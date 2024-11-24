@@ -49,6 +49,9 @@ export class ImageCarousel {
   previousSlide() {
     this.resetCurrentIndexForPreviousSlide();
 
+    this.removeActiveClassFromAllDots();
+    this.addActiveClassToCurrentDotForPreviousSlide();
+
     this.allSlides.forEach((slide) => {
       slide.style.transform = `translate(${(this.currentSlideIndex - 1) * -100}%)`;
     });
@@ -60,6 +63,10 @@ export class ImageCarousel {
     if (this.currentSlideIndex === 0) {
       this.currentSlideIndex = 3;
     }
+  }
+
+  addActiveClassToCurrentDotForPreviousSlide() {
+    this.allDots[this.currentSlideIndex - 1].classList.add("active");
   }
 
   removeActiveClassFromAllDots() {
